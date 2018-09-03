@@ -1,27 +1,21 @@
-# Todo
+# ToDo demo app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+This demo app is a code reference from Angular workshop for Metamins colleagues.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to deploy
 
-## Code scaffolding
+- Clone repo with `git clone`
+- Setup angular with `npm install -g @angular/cli`
+- Install dependencies cd to the app directory and run `npm i`
+- Use `ng serve` to start development server. Navigate to  `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## More info
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+For more information, please visit https://angular.io/
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The MIT public license https://opensource.org/licenses/MIT
