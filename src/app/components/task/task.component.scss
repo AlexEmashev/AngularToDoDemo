@@ -1,0 +1,19 @@
+.complete {
+  text-decoration: line-through;
+}
+.task {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  input {
+    margin-right: 7px;
+  }
+  span {
+    flex: 1 auto;
+    text-align: left;
+  }
+  margin-bottom: 8px;
+  &:hover {
+    background: #697e9112;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="task">
+  <input type="checkbox" 
+    [checked]="task.complete" 
+    (change)="task.complete = !task.complete"
+  >
+  <span [ngClass]="{'complete': task.complete}">{{task.text}}</span>
+  <button class="btn btn-outline-secondary" (click)="delete(task.id)">Delete</button>
+</div>
