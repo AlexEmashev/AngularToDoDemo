@@ -1,8 +1,10 @@
 <div class="task">
+  <!-- Wire checked property and subscribe to change event by passing code to execute -->
   <input type="checkbox" 
     [checked]="task.complete" 
     (change)="task.complete = !task.complete"
   >
-  <span [ngClass]="{'complete': task.complete}">{{task.text}}</span>
+  <!-- Example how to assign class based on boolean -->
+  <span [ngClass]="{'complete': task.complete}" (click)="task.complete = !task.complete">{{task.text}}</span>
   <button class="btn btn-outline-secondary" (click)="delete(task.id)">Delete</button>
 </div>
