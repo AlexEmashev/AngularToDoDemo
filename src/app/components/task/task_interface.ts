@@ -1,7 +1,7 @@
 /**
  * Single task interface
  */
-export interface Task {
+export interface ITask {
   /**
    * ID of a task
    */

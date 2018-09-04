@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Task } from "./components/task/task_interface"; // Import interface of Tasks, to enable type checking.
+import { ITask } from "./components/task/task_interface"; // Import interface of Tasks, to enable type checking.
 import { TasksService } from "./tasks.service"; // Import task service.
 import { AngularFireAuth } from 'angularfire2/auth';
 import { auth as FirebaseAuth, User } from "firebase/app";
@@ -13,7 +13,7 @@ import { auth as FirebaseAuth, User } from "firebase/app";
 export class AppComponent {
   title = "Our First ToDo App";
   // Task list with predefines to play with. Strictly typed.
-  tasks: Task[];
+  tasks: ITask[];
   new_task: string
 
   constructor(

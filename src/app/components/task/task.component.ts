@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Task } from './task_interface'
+import { ITask } from './task_interface'
 import { TasksService } from '../../tasks.service'
 
 @Component({
@@ -11,7 +11,7 @@ export class TaskComponent implements OnInit {
   /**
    * The input parameter of a component.
    */
-  @Input() task:Task
+  @Input() task:ITask
   /**
    * Output events from components, to contact with outer-world.
    */
