@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from './task_interface'
+import { TasksService } from '../../tasks.service'
 
 @Component({
   selector: 'app-task',
@@ -20,10 +21,14 @@ export class TaskComponent implements OnInit {
    * It sould only be resoponsable for creating a component.
    * Set up of component shoud go to ngOnInit() inside of Angular lifecycle.
    */
-  constructor() { }
+  constructor(private tasksService: TasksService) { }
 
   ngOnInit() {
 
+  }
+
+  complete(id: number) {
+    this.tasksService.completeTask(id)
   }
 
   /**

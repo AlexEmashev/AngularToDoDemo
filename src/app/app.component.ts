@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Task } from "./components/task/task_interface"; // Import interface of Tasks, to enable type checking.
 import { TasksService } from "./tasks.service"; // Import task service.
+import { AngularFireAuth } from 'angularfire2/auth';
+import { auth as FirebaseAuth, User } from "firebase/app";
 
 // Application entry point component.
 @Component({
@@ -12,11 +14,11 @@ export class AppComponent {
   title = "Our First ToDo App";
   // Task list with predefines to play with. Strictly typed.
   tasks: Task[];
+  new_task: string
 
-  /**
-   * Constructor, kek
-   */
-  constructor(private taskService: TasksService) { }
+  constructor(
+    public angularFireAuth: AngularFireAuth,
+    private taskService: TasksService) { }
 
   ngOnInit() {
    this.tasks = this.taskService.getTasks()
@@ -38,5 +40,17 @@ export class AppComponent {
    */
   addTask(taskText: string) {
     this.taskService.addTask(taskText)
+    this.new_task = ''
+  }
+
+  login() {
+    this.angularFireAuth.auth.signInWithPopup(
+      new FirebaseAuth.GoogleAuthProvider())
+      .then(res => console.log(res))
+      .catch(err => console.warn(err))
+  }
+
+  logout() {
+    this.angularFireAuth.auth.signOut();
   }
 }

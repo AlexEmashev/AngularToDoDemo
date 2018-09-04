@@ -3,6 +3,9 @@
   <h1>
     {{title|uppercase}} <!-- Using of Angular directives and text parameter interpolation -->
   </h1>
+  <div *ngIf="angularFireAuth.user | async as user; else showLogin">
+    <button (click)="logout()">Logout from {{ user.email }}</button>
+  </div>
   <div class="tasks-app">
     <div class="add-task">
         <span>Add task:</span>
@@ -12,7 +15,7 @@
         <!-- Input uses ngModel directive to wire two-way data binding. See also: https://angular.io/api/forms/NgModel -->
       <button 
         class="btn btn-primary"
-        (click)="addTask(new_task); new_task='';"
+        (click)="addTask(new_task)"
         [disabled]="!new_task"
         > <!-- Button already has click event to subscribe to -->
         Add
@@ -28,3 +31,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #showLogin>
+  <button (click)="login()">Login with Google</button>
+</ng-template>

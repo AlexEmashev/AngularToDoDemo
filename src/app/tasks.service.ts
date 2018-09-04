@@ -5,9 +5,9 @@ import { Task } from './components/task/task_interface'
   providedIn: 'root'
 })
 export class TasksService {
-  tasksUpdated:EventEmitter<Task[]> = new EventEmitter();
+  tasksUpdated: EventEmitter<Task[]> = new EventEmitter();
 
-  tasks: Task[] = [
+  _tasks: Task[] = [
     {
       id: 0,
       text: "Learn TypeScript",
@@ -24,6 +24,13 @@ export class TasksService {
       complete: false
     }
   ];
+  get tasks() {
+    return this._tasks
+  }
+  set tasks(tasks: Task[]) {
+    this._tasks = tasks
+    this.tasksUpdated.emit(this._tasks)
+  }
 
   constructor() { }
   /**
@@ -33,22 +40,25 @@ export class TasksService {
     return [...this.tasks]; // Pass new array of tasks
   }
 
-  addTask(text:string): void {
+  addTask(text: string): void {
     let new_id = this.tasks.length;
     this.tasks = [...this.tasks, {
       id: new_id,
       text: text,
       complete: false
     }];
-    this.tasksUpdated.emit(this.tasks)
   }
 
   completeTask(id: number): void {
-    
+    this.tasks = this.tasks.map(task => {
+      if (task.id === id) {
+        task.complete = !task.complete
+      }
+      return task
+    })
   }
 
   deleteTask(id: number): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
-    this.tasksUpdated.emit(this.tasks)
   }
 }
