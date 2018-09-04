@@ -13,6 +13,7 @@
       <button 
         class="btn btn-primary"
         (click)="addTask(new_task); new_task='';"
+        [disabled]="!new_task"
         > <!-- Button already has click event to subscribe to -->
         Add
       </button>
