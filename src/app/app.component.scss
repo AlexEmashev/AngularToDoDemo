@@ -4,12 +4,52 @@
 // }
 
 .login-form {
-  width: 100%;
+  margin: 0 7px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
 }
 
+.app-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+}
+.navigation {
+  display: flex;
+  background: #f7f7f7;
+  line-height: 46px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .app-title {
   color: #575757;
+  font-size: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.app-menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu-item {
+  margin: 0 15px;
+}
+.menu-link {
+  color: #484848;
+  font-weight: 400;
+  letter-spacing: .5px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

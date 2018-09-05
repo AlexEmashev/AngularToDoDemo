@@ -1,10 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<h1 class="navbar-brand app-title">{{title}}</h1>
-<ul class="navbar-nav">
+<nav class="navigation">
+<div class="app-header">
+<h1 class="app-title"><span>{{title}}</span></h1>
+<ul class="app-menu">
   <!-- Router links -->
-  <li class="nav-item"><a routerLink="/" class="nav-link">ToDo</a></li>
-  <li class="nav-item"><a routerLink="/archive" class="nav-link">Archive</a></li>
+  <li class="menu-item">
+    <a routerLink="" class="menu-link">ToDo</a></li>
+  <li class="menu-item">
+    <a routerLink="archive" class="menu-link">Archive</a></li>
 </ul>
+</div>
 <form class="form-inline login-form" *ngIf="angularFireAuth.user | async as user; else showLogin">
   <button class="btn btn-info" (click)="logout()">Logout from {{ user.email }}</button>
 </form>

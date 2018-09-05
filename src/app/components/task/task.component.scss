@@ -16,6 +16,13 @@
     background: #697e9112;
   }
 }
+
+.task-text {
+  width: 100%;
+  flex-grow: 1;
+}
+
 .complete-date {
   color: #ababab;
+  padding: 0 7px;
 }

@@ -17,6 +17,7 @@ export class TasksService {
     {
       id: 0,
       text: "Learn TypeScript",
+      completedOn: new Date(),
       complete: true
     },
     {
@@ -27,6 +28,13 @@ export class TasksService {
     {
       id: 2,
       text: "Learn Services",
+      completedOn: new Date(),
+      complete: true,
+      archived: true
+    },
+    {
+      id: 3,
+      text: "Learn routing",
       complete: false
     }
   ];
