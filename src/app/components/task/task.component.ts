@@ -12,6 +12,7 @@ export class TaskComponent implements OnInit {
    * The input parameter of a component.
    */
   @Input() task:ITask
+  @Input() archivedMode: boolean
   /**
    * Output events from components, to contact with outer-world.
    */

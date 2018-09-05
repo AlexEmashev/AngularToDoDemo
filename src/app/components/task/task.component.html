@@ -3,8 +3,9 @@
   <input type="checkbox" 
     [checked]="task.complete" 
     (change)="complete(task.id)"
+    *ngIf="!archivedMode"
   >
   <!-- Example how to assign class based on boolean -->
-  <span [ngClass]="{'complete': task.complete}" (click)="complete(task.id)">{{task.text}}</span>
+  <span [ngClass]="{'complete': task.complete && !archivedMode}" (click)="complete(task.id)">{{task.text}}</span>
   <button class="btn btn-outline-secondary" (click)="delete(task.id)">Delete</button>
 </div>

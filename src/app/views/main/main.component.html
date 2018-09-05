@@ -3,7 +3,7 @@
   <h1>
     ToDo
   </h1>
-  <div class="tasks-app">
+  <div class="tasks-container">
     <div class="add-task">
         <span>Add task:</span>
       <input class=""
@@ -22,9 +22,17 @@
       <span class="no-tasks" *ngIf="tasks.length == 0">No tasks so far</span>
       <ul class="tasks" *ngIf="tasks.length > 0">
         <li *ngFor="let task of tasks"> <!-- Iterate through object, please notice 'of' keywoard from ES6 -->
-          <app-task [task]="task" (deleted)="onDeleted($event)"></app-task> <!-- Passing our data object to the component and subscribint to component's events -->
+          <app-task *ngIf="!task.archived" [task]="task" (deleted)="onDeleted($event)"></app-task> <!-- Passing our data object to the component and subscribint to component's events -->
         </li>
       </ul>
+    </div>
+    <div class="controls">
+    <button 
+        class="btn btn-success archive-button"
+        (click)="archiveCompleted()"
+        >
+        Archive Completed
+      </button>
     </div>
   </div>
 </div>

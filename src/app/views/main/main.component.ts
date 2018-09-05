@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
    this.tasks = this.taskService.getTasks()
    this.taskService.tasksUpdated.subscribe(tasks => {
-     this.tasks = [...tasks]
+     this.tasks = tasks.filter(task => !task.archived)
     })
   }
   /**
@@ -36,6 +36,17 @@ export class MainComponent implements OnInit {
   addTask(taskText: string) {
     this.taskService.addTask(taskText)
     this.new_task = ''
+  }
+
+  /**
+   * Set task to archived
+   */
+  archiveCompleted() {
+    for (let task of this.tasks) {
+      if (task.complete){
+        this.taskService.archiveTask(task.id)
+      }
+    }
   }
 
 }

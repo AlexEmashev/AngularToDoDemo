@@ -13,5 +13,9 @@ export interface ITask {
   /**
    * true if task complete
    */
-  complete: boolean
+  complete: boolean,
+  /**
+   * true if task is archived
+   */
+  archived?: boolean
 }

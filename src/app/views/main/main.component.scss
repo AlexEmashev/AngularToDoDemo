@@ -4,7 +4,7 @@
   padding: 0;
 }
 
-.tasks-app {
+.tasks-container {
   max-width: 450px;
   width: 100%;
   margin: 0 auto;
@@ -34,4 +34,8 @@
 .no-tasks {
   display: block;
   text-align: center;
+}
+
+.archive-button {
+  margin: 10px auto;
 }

@@ -36,6 +36,7 @@ export class TasksService {
   get tasks() {
     return this._tasks;
   }
+
   /**
    * Sets list of tasks
    */
@@ -50,6 +51,10 @@ export class TasksService {
    */
   getTasks(): ITask[] {
     return [...this.tasks]; // Pass new array of tasks
+  }
+
+  getArchivedTasks(): ITask[] {
+    return this.tasks.filter(task => task.archived)
   }
 
   addTask(text: string): void {
@@ -75,5 +80,14 @@ export class TasksService {
 
   deleteTask(id: number): void {
     this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
+  archiveTask(id: number): void {
+    this.tasks = this.tasks.map(task => {
+      if (task.id === id) {
+        task.archived = true;
+      }
+      return task;
+    })
   }
 }

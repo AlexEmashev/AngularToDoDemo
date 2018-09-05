@@ -1,3 +1,10 @@
-<p>
-  archive works!
-</p>
+<div class="tasks-container">
+  <div class="task-list">
+      <span class="no-tasks" *ngIf="tasks.length == 0">No archived tasks</span>
+      <ul class="tasks" *ngIf="tasks.length > 0">
+        <li *ngFor="let task of tasks"> <!-- Iterate through object, please notice 'of' keywoard from ES6 -->
+          <app-task *ngIf="task.archived" [task]="task" (deleted)="onDeleted($event)" archivedMode="true"></app-task> <!-- Passing our data object to the component and subscribint to component's events -->
+        </li>
+      </ul>
+  </div>
+</div>

@@ -2,7 +2,7 @@
   text-decoration: line-through;
 }
 .task {
-  padding: 0 10px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
   input {
@@ -12,7 +12,6 @@
     flex: 1 auto;
     text-align: left;
   }
-  margin-bottom: 8px;
   &:hover {
     background: #697e9112;
   }
