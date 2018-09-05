@@ -73,6 +73,11 @@ export class TasksService {
     this.tasks = this.tasks.map(task => {
       if (task.id === id) {
         task.complete = !task.complete;
+        if (task.complete){
+          task.completedOn = new Date();
+        } else {
+          task.completedOn = null;
+        }
       }
       return task;
     });

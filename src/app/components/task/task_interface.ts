@@ -17,5 +17,9 @@ export interface ITask {
   /**
    * true if task is archived
    */
-  archived?: boolean
+  archived?: boolean,
+  /**
+   * Set date of completeon
+   */
+  completedOn?: Date
 }

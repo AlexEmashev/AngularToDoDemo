@@ -7,5 +7,6 @@
   >
   <!-- Example how to assign class based on boolean -->
   <span [ngClass]="{'complete': task.complete && !archivedMode}" (click)="complete(task.id)">{{task.text}}</span>
+  <span class="complete-date" *ngIf="archivedMode">{{task.completedOn | date:"dd.MM.yy"}}</span>
   <button class="btn btn-outline-secondary" (click)="delete(task.id)">Delete</button>
 </div>
