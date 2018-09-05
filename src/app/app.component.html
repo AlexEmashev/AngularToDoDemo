@@ -1,37 +1,20 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{title|uppercase}} <!-- Using of Angular directives and text parameter interpolation -->
-  </h1>
-  <div *ngIf="angularFireAuth.user | async as user; else showLogin">
-    <button (click)="logout()">Logout from {{ user.email }}</button>
-  </div>
-  <div class="tasks-app">
-    <div class="add-task">
-        <span>Add task:</span>
-      <input class=""
-        [(ngModel)]="new_task" 
-      > <!-- new_task variable is going to be used only from the UI site -->
-        <!-- Input uses ngModel directive to wire two-way data binding. See also: https://angular.io/api/forms/NgModel -->
-      <button 
-        class="btn btn-primary"
-        (click)="addTask(new_task)"
-        [disabled]="!new_task"
-        > <!-- Button already has click event to subscribe to -->
-        Add
-      </button>
-    </div>
-    <div class="task-list">
-      <span class="no-tasks" *ngIf="tasks.length == 0">No tasks so far</span>
-      <ul class="tasks" *ngIf="tasks.length > 0">
-        <li *ngFor="let task of tasks"> <!-- Iterate through object, please notice 'of' keywoard from ES6 -->
-          <app-task [task]="task" (deleted)="onDeleted($event)"></app-task> <!-- Passing our data object to the component and subscribint to component's events -->
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<h1 class="navbar-brand">{{title}}</h1>
+<ul class="navbar-nav">
+  <!-- Router links -->
+  <li class="nav-item"><a routerLink="/" class="nav-link">ToDo</a></li>
+  <li class="nav-item"><a routerLink="/archive" class="nav-link">Archive</a></li>
+</ul>
+<form class="form-inline login-form" *ngIf="angularFireAuth.user | async as user; else showLogin">
+  <button class="btn btn-info" (click)="logout()">Logout from {{ user.email }}</button>
+</form>
+</nav>
 
 <ng-template #showLogin>
-  <button (click)="login()">Login with Google</button>
+  <form class="form-inline login-form">
+    <button class="btn btn-info" (click)="login()">Login with Google</button>
+  </form>
 </ng-template>
+
+<!-- Main content goes here -->
+<router-outlet></router-outlet>

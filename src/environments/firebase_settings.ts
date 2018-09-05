@@ -1,3 +1,4 @@
+// 🔥 Please provide your own settings 🔥
 export const FirebaseSettings = 
 {
   apiKey: "AIzaSyC089c80yqMxd5oQNTED9M_GKz56OCGQ5s",

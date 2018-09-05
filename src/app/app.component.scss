@@ -1,42 +1,11 @@
-h1 {
-  margin: 20px 0 30px 0;
-  color: grey;
-}
+// h1 {
+//   margin: 20px 0 30px 0;
+//   color: grey;
+// }
 
-.tasks {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.tasks-app {
-  max-width: 450px;
+.login-form {
   width: 100%;
-  margin: 0 auto;
-  border: 1px solid #599be6;
-  border-radius: 3px;
-}
-
-.add-task {
-  margin: 7px;
-  border-bottom: 1px solid #599be6;
-  padding-bottom: 7px;
-  margin-bottom: 15px;
-  text-align: center;
   display: flex;
-  align-items: center;
-  span {
-    margin-right: 7px;
-  }
-  input {
-    flex: 1 auto;
-    margin-right: 5px;
-    height: 38px;
-    font-size: 24px;
-    min-width: 10px;
-  }
-}
-.no-tasks {
-  display: block;
-  text-align: center;
+  flex-direction: row;
+  justify-content: flex-end;
 }
