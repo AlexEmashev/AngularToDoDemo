@@ -29,7 +29,9 @@ export class TaskComponent implements OnInit {
   }
 
   complete(id: number) {
-    this.tasksService.completeTask(id)
+    if (!this.archivedMode) {
+      this.tasksService.completeTask(id)
+    }
   }
 
   /**

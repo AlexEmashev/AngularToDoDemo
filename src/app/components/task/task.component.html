@@ -1,12 +1,12 @@
-<div class="task">
+<div class="task" (click)="complete(task.id)">
   <!-- Wire checked property and subscribe to change event by passing code to execute -->
   <input type="checkbox" 
     [checked]="task.complete" 
-    (change)="complete(task.id)"
+
     *ngIf="!archivedMode"
   >
   <!-- Example how to assign class based on boolean -->
-  <span class="task-text" [ngClass]="{'complete': task.complete && !archivedMode}" (click)="complete(task.id)">{{task.text}}</span>
+  <span class="task-text" [ngClass]="{'complete': task.complete && !archivedMode}">{{task.text}}</span>
   <span class="complete-date">{{task.completedOn | date:"dd.MM.yy"}}</span>
   <button class="btn btn-outline-secondary" (click)="delete(task.id)">Delete</button>
 </div>
