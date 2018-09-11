@@ -10,7 +10,8 @@ import { auth as FirebaseAuth, User } from "firebase/app";
 })
 export class AppComponent {
   constructor(
-    public angularFireAuth: AngularFireAuth) { }
+    public angularFireAuth: AngularFireAuth
+  ) { }
   title = "Our First ToDo App";
 
   login() {
