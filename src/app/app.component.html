@@ -1,17 +1,27 @@
+<app-header></app-header>
 <nav class="navigation">
-<div class="app-header">
-<h1 class="app-title"><span>{{title}}</span></h1>
-<ul class="app-menu">
-  <!-- Router links -->
-  <li class="menu-item">
-    <a routerLink="" class="menu-link">ToDo</a></li>
-  <li class="menu-item">
-    <a routerLink="archive" class="menu-link">Archive</a></li>
-</ul>
-</div>
-<form class="form-inline login-form" *ngIf="angularFireAuth.user | async as user; else showLogin">
-  <button class="btn btn-info" (click)="logout()">Logout from {{ user.email }}</button>
-</form>
+  <div class="app-header">
+    <h1 class="app-title">
+      <span>{{ title }}</span>
+    </h1>
+    <ul class="app-menu">
+      <!-- Router links -->
+      <li class="menu-item">
+        <a routerLink="" class="menu-link">ToDo</a>
+      </li>
+      <li class="menu-item">
+        <a routerLink="archive" class="menu-link">Archive</a>
+      </li>
+    </ul>
+  </div>
+  <form
+    class="form-inline login-form"
+    *ngIf="(angularFireAuth.user | async) as user; else showLogin"
+  >
+    <button class="btn btn-info" (click)="logout()">
+      Logout from {{ user.email }}
+    </button>
+  </form>
 </nav>
 
 <ng-template #showLogin>
