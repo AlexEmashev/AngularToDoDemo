@@ -1,3 +1,5 @@
-<mat-toolbar color="primary">
-  <div class="logo"><ng-contnt></ng-contnt></div>
+<mat-toolbar color="primary" class="nav-bar">
+  <ng-content select="[data-app-logo]"></ng-content>
+  <ng-content select="[data-app-menu]"></ng-content>
+  <ng-content select="[data-app-login]"></ng-content>
 </mat-toolbar>

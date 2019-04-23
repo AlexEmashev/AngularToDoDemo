@@ -1,32 +1,30 @@
-<app-header></app-header>
-<nav class="navigation">
-  <div class="app-header">
-    <h1 class="app-title">
-      <span>{{ title }}</span>
-    </h1>
-    <ul class="app-menu">
-      <!-- Router links -->
-      <li class="menu-item">
-        <a routerLink="" class="menu-link">ToDo</a>
-      </li>
-      <li class="menu-item">
-        <a routerLink="archive" class="menu-link">Archive</a>
-      </li>
-    </ul>
-  </div>
+<app-header>
+  <h1 class="logo" color="warn" data-app-logo>{{ title }}</h1>
+  <ul class="menu" data-app-menu>
+    <!-- Router links -->
+    <li class="menu-item">
+      <a routerLink="" mat-button>ToDo</a>
+    </li>
+    <li class="menu-item">
+      <a routerLink="archive" mat-button>Archive</a>
+    </li>
+  </ul>
   <form
-    class="form-inline login-form"
-    *ngIf="(angularFireAuth.user | async) as user; else showLogin"
+    data-app-login
+    class="login"
+    *ngIf="(angularFireAuth.user | async) as user; else loginTemplate"
   >
-    <button class="btn btn-info" (click)="logout()">
-      Logout from {{ user.email }}
+    <button mat-stroked-button color="accent" (click)="logout()">
+      {{ user.email }}
     </button>
   </form>
-</nav>
+</app-header>
 
-<ng-template #showLogin>
-  <form class="form-inline login-form">
-    <button class="btn btn-info" (click)="login()">Login with Google</button>
+<ng-template #loginTemplate>
+  <form class="login">
+    <button mat-stroked-button color="accent" (click)="login()">
+      Log in with Google
+    </button>
   </form>
 </ng-template>
 

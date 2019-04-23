@@ -11,6 +11,8 @@ import { MainComponent } from './views/main/main.component';
 import { ArchiveComponent } from './views/archive/archive.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './components/header/header.module';
+import { MatButtonModule } from '@angular/material/button';
+import { ToDoInputModule } from './components/todo-input/todo-input.module';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -20,17 +22,19 @@ const appRoutes: Routes = [
   declarations: [
     // Used to allow other modules to import components defined in this module
     AppComponent, // Main app component
-    TaskComponent,
+    TaskComponent, // Describes single task
     MainComponent,
-    ArchiveComponent // Describes single task
+    ArchiveComponent
   ],
   imports: [
+    ToDoInputModule,
     BrowserModule,
     FormsModule, // Import module to enable ngModule for input
     AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    HeaderModule
+    HeaderModule,
+    MatButtonModule
   ],
   providers: [AngularFireAuth],
   bootstrap: [AppComponent]
